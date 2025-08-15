@@ -73,7 +73,7 @@ async function setLevel(tokens, levelId, courseId) {
   }
 }
 
-async function fetchTasks(levelId, courseId, efAccessToken, efAccessAccount) {
+async function fetchTasks(levelId, courseId, unitId, efAccessToken, efAccessAccount) {
   try {
     const url = `https://learn.corporate.ef.com/wl/api/study-plan/study-plan?locale=en&clientTimezone=America%2FSao_Paulo&courseId=${courseId}&levelId=${levelId}&unitId=${unitId}`;
     const { data } = await axios.get(url, {
@@ -183,5 +183,6 @@ app.post('/api/tasks', async (req, res) => {
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
+
 
 
